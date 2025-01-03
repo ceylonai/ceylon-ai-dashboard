@@ -78,7 +78,7 @@ export default function ResetPassword() {
                     )}
                     <div className="text-center text-sm">
                         Remember your password?{" "}
-                        <Link href="/" className="text-purple-600 hover:underline">
+                        <Link href="/auth/signin" className="text-purple-600 hover:underline">
                             Sign in
                         </Link>
                     </div>
