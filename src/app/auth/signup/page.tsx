@@ -61,6 +61,9 @@ export default function SignUp() {
                                     </Link>
                                 </label>
                             </div>
+                            <Button className="w-full bg-black text-white hover:bg-black/90">
+                                Sign up
+                            </Button>
                         </div>
                     </div>
                 </div>
