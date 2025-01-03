@@ -77,6 +77,38 @@ export default function SignIn() {
                     </div>
                 </div>
             </div>
+            <div className="hidden lg:block relative">
+                <Image
+                    src="/ceylon-ai-background.jpg"
+                    alt="Ceylon AI Background"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50"/>
+                {/* Overlay for better text visibility */}
+                <div className="absolute top-6 right-6 z-10">
+                    <Image
+                        src="/ceylonAilogo.png"
+                        alt="Ceylon AI Logo"
+                        width={60}
+                        height={60}
+                        className="rounded-full"
+                    />
+                </div>
+                <div
+                    className="relative z-10 flex h-full flex-col items-center justify-center p-8 text-center text-white">
+                    <h2 className="text-5xl font-bold tracking-tighter">
+                        Design workflows
+                        <br/>
+                        With Ceylon AI
+                    </h2>
+                    <p className="mt-4 max-w-2xl text-lg text-gray-300">
+                        From tasks and workflows to apps and systems, build and automate
+                        anything in one powerful visual platform.
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }
