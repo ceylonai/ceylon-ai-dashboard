@@ -18,7 +18,7 @@ export default function SignUp() {
                     <div className="space-y-4">
                         <Button variant="outline" className="w-full">
                             <Image
-                                src="/google.svg"
+                                src="/googlelogo.png"
                                 alt="Google"
                                 width={20}
                                 height={20}
@@ -28,7 +28,7 @@ export default function SignUp() {
                         </Button>
                         <Button variant="outline" className="w-full">
                             <Image
-                                src="/apple.svg"
+                                src="/github-mark.png"
                                 alt="Apple"
                                 width={20}
                                 height={20}
@@ -65,6 +65,12 @@ export default function SignUp() {
                                 Sign up
                             </Button>
                         </div>
+                    </div>
+                    <div className="text-center text-sm">
+                        Already have an account?{" "}
+                        <Link href="/signin" className="text-purple-600 hover:underline">
+                            Sign in
+                        </Link>
                     </div>
                 </div>
             </div>
