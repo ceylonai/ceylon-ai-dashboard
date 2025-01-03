@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-// import { SignIn} from "@/components/auth/signin"
-// import { SignUp} from "@/components/auth/signup"
+
 
 export function Navbar() {
   return (
