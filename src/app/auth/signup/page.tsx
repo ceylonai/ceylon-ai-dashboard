@@ -1,6 +1,8 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function SignUp() {
     return (
@@ -47,6 +49,18 @@ export default function SignUp() {
                             <Input type="email" placeholder="Email" />
                             <Input type="password" placeholder="Password" />
                             <Input type="password" placeholder="Confirm Password" />
+                            <div className="flex items-center space-x-2">
+                                <Checkbox id="terms" />
+                                <label
+                                    htmlFor="terms"
+                                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                >
+                                    I agree to the{" "}
+                                    <Link href="/terms" className="text-purple-600 hover:underline">
+                                        terms and conditions
+                                    </Link>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
