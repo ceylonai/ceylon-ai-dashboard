@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
-
 export default function SignUp() {
     return (
         <div className="grid min-h-screen lg:grid-cols-2">
