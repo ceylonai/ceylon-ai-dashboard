@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
+import Image from "next/image"
 
 export default function SignIn() {
     return (
@@ -15,6 +16,26 @@ export default function SignIn() {
                         </p>
                     </div>
                     <div className="space-y-4">
+                    <Button variant="outline" className="w-full">
+                            <Image
+                                src="/googlelogo.png"
+                                alt="Google"
+                                width={20}
+                                height={20}
+                                className="mr-2"
+                            />
+                            Sign in with Google
+                        </Button>
+                        <Button variant="outline" className="w-full">
+                            <Image
+                                src="/github-mark.png"
+                                alt="Apple"
+                                width={20}
+                                height={20}
+                                className="mr-2"
+                            />
+                            Sign in with GitHub
+                        </Button>
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t"></div>
