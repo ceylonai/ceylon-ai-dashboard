@@ -45,12 +45,12 @@ export default function SignUp() {
                             </div>
                         </div>
                         <div className="space-y-4">
-                            <Input type="text" placeholder="Full Name" />
-                            <Input type="email" placeholder="Email" />
-                            <Input type="password" placeholder="Password" />
-                            <Input type="password" placeholder="Confirm Password" />
+                            <Input type="text" placeholder="Full Name"/>
+                            <Input type="email" placeholder="Email"/>
+                            <Input type="password" placeholder="Password"/>
+                            <Input type="password" placeholder="Confirm Password"/>
                             <div className="flex items-center space-x-2">
-                                <Checkbox id="terms" />
+                                <Checkbox id="terms"/>
                                 <label
                                     htmlFor="terms"
                                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -72,6 +72,28 @@ export default function SignUp() {
                             Sign in
                         </Link>
                     </div>
+                </div>
+            </div>
+            <div className="hidden lg:block relative bg-[#2D1B69] text-white">
+                <div className="absolute top-6 right-6">
+                    <Image
+                        src="/ceylonAiLogo.png"
+                        alt="Ceylon AI Logo"
+                        width={60}
+                        height={60}
+                        className="rounded-full"
+                    />
+                </div>
+                <div className="flex h-full flex-col items-center justify-center p-8 text-center">
+                    <h2 className="text-5xl font-bold tracking-tighter">
+                        Design workflows
+                        <br/>
+                        With Ceylon AI
+                    </h2>
+                    <p className="mt-4 max-w-2xl text-lg text-gray-300">
+                        From tasks and workflows to apps and systems, build and automate
+                        anything in one powerful visual platform.
+                    </p>
                 </div>
             </div>
         </div>
