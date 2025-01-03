@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
-export default function Signup() {
+export default function SignUp() {
     return (
         <div className="grid min-h-screen lg:grid-cols-2">
             <div className="flex items-center justify-center px-8 py-12 md:px-12">
@@ -33,13 +34,24 @@ export default function Signup() {
                             />
                             Sign up with Apple
                         </Button>
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t"></div>
+                            </div>
+                            <div className="relative flex justify-center text-xs uppercase">
+                                <span className="bg-white px-2 text-gray-500">OR</span>
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <Input type="text" placeholder="Full Name" />
+                            <Input type="email" placeholder="Email" />
+                            <Input type="password" placeholder="Password" />
+                            <Input type="password" placeholder="Confirm Password" />
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-)
+    )
 }
 
