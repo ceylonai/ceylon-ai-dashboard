@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function SignIn() {
     return (
@@ -25,6 +26,23 @@ export default function SignIn() {
                         <div className="space-y-4">
                             <Input type="email" placeholder="Email"/>
                             <Input type="password" placeholder="Password"/>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2">
+                                    <Checkbox id="remember"/>
+                                    <label
+                                        htmlFor="remember"
+                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    >
+                                        Keep me signed in
+                                    </label>
+                                </div>
+                                <Link
+                                    href="/forgot-password"
+                                    className="text-sm text-purple-600 hover:underline"
+                                >
+                                    Forgot password?
+                                </Link>
+                            </div>
                             <Button className="w-full bg-black text-white hover:bg-black/90">
                                 Sign in
                             </Button>
