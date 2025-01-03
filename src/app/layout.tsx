@@ -5,7 +5,6 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-
   title: "Ceylon AI",
   description: "AI App Builder empowers users to create, simulate, and deploy AI-powered apps effortlessly.",
 };
