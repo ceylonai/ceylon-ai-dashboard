@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
+import "../components/ui/get-started-btn.css" ;
 
 
 export function Navbar() {
@@ -24,13 +25,17 @@ export function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="text-gray-300 hover:text-white">
+          <Button variant="ghost" className="nlg">
             <Link href="/auth/signin">
             Login
             </Link>
           </Button>
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+          <Button className="nsup">
           <Link href="/auth/signup">
+             <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             Get Started Free
             </Link>
           </Button>
