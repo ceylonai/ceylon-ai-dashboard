@@ -1,6 +1,6 @@
 
-import { Card, CardContent } from "../ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "./card"
+import { Button } from "../components/ui/button"
 
 export function Templates() {
   const templates = [
