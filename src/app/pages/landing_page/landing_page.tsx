@@ -1,8 +1,8 @@
-import { Navbar } from "../../../components/ui/navbar"
-import { Hero } from "../../../components/ui/hero"
-import { Features } from "../../../components/ui/features"
-import { Templates } from "../../../components/ui/template"
-import { Footer } from "../../../components/ui/footer"
+import { Navbar } from "../../../components/navbar"
+import { Hero } from "../../../components/hero"
+import { Features } from "../../../components/features"
+import { Templates } from "../../../components/template"
+import { Footer } from "../../../components/footer"
 
 
 
