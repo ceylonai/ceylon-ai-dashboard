@@ -3,7 +3,7 @@
     padding: 25px 30px;
     margin: 40px 0;
     color: #c9246f;
-    background-color: rgb(21, 1, 40);
+    background-color: rgb(14, 1, 26);
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
@@ -282,12 +282,9 @@
     z-index: -1;
     background: linear-gradient(
         45deg,
-        #5b205e,
-        #b578cf,
+        #440e47,
         #8e2065,
-        #e04386,
-        #fd82b1,
-        #8e2065
+        #c9246f
     );
     background-size: 400%;
     filter: blur(5px);
