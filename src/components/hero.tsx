@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../components/ui/button"
 import "../components/ui/get-started-btn.css";
 
@@ -16,11 +17,13 @@ export function Hero() {
             </p>
             {/* sup = signup(get started button) */}
             <Button className="mt-46 sup">
+            <Link href="/auth/signup">
+             <span></span>
               <span></span>
               <span></span>
               <span></span>
-              <span></span>
-              Get Started Free
+            Get Started Free
+            </Link>
             </Button>
           </div>
         </div>
