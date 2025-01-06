@@ -1,8 +1,7 @@
-import {Button} from "../components/ui/button" ;
-import LandingPage from "./pages/landing_page/landing_page";
+import {Button} from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <LandingPage></LandingPage>
+    <Button>Hello World</Button>
   );
 }
