@@ -20,7 +20,7 @@ export function Templates() {
           Get inspired by thousands of free workflow automation templates. Customize them to match your ideal workflows.
         </p>
         <Button className="sup">
-          Get Started Free →
+          Get Started Free  →
         </Button>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {templates.map((template, i) => (
