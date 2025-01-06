@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 export default function SignUp() {
     return (
         <div className="grid min-h-screen lg:grid-cols-2">
-            <div className="flex items-center justify-center px-8 py-12 md:px-12">
+            <div className="flex items-center justify-center px-8 py-12 md:px-12 bg-white dark:bg-gray-900">
                 <div className="w-full max-w-sm space-y-8">
                     <div className="space-y-2 text-center">
                         <h1 className="text-3xl font-bold">Sign up</h1>
