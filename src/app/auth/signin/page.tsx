@@ -1,10 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
+    const router = useRouter();
     return (
         <div className="grid min-h-screen lg:grid-cols-2">
             <div className="flex items-center justify-center px-8 py-12 md:px-12 bg-white dark:bg-gray-900">
@@ -64,7 +68,10 @@ export default function SignIn() {
                                     Forgot password?
                                 </Link>
                             </div>
-                            <Button className="w-full bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90">
+                            <Button
+                                className="w-full bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+                                onClick={() => router.push('/pages/dashboard')}
+                            >
                                 Sign in
                             </Button>
                         </div>
@@ -110,6 +117,5 @@ export default function SignIn() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
