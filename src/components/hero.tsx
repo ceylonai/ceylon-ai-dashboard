@@ -1,8 +1,12 @@
-import Link from "next/link";
+'use client'
+import router from "next/router";
 import { Button } from "../components/ui/button"
 import "../components/ui/get-started-btn.css";
+import { useRouter } from 'next/navigation'
+import Link from "next/link"
 
 export function Hero() {
+  const router = useRouter()
   return (
     <section className="h-screen pt-32 pb-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -16,15 +20,13 @@ export function Hero() {
               AI App Builder empowers users to create, simulate, and deploy AI-powered apps effortlessly. Our intuitive drag-and-drop tool enables seamless custom app development, performance optimization, and multi-platform deployment within a user-friendly online environment.
             </p>
             {/* sup = signup(get started button) */}
-            <Link href="/auth/signup">
-              <Button className="mt-46 sup">
+              <Button className="mt-46 sup" onClick={() => router.push('/auth/signup')}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Get Started Free
               </Button>
-            </Link>
           </div>
         </div>
       </div>
