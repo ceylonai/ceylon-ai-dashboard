@@ -6,14 +6,16 @@ interface VantaBackgroundProps {
   children?: React.ReactNode
 }
 declare global {
-    interface Window {
-      VANTA: any;
-      THREE: any;
+  interface Window {
+    VANTA: {
+      NET: (options: Record<string, unknown>) => { destroy: () => void }
     }
+    THREE: unknown
   }
-  
-  export {};
-  
+}
+
+export { };
+
 
 export default function VantaBackground({ children }: VantaBackgroundProps) {
   const vantaRef = useRef<HTMLDivElement>(null)
@@ -22,7 +24,7 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
   useEffect(() => {
     const loadScripts = async () => {
       if (typeof window === 'undefined') return;
-  
+
       // Ensure Three.js is loaded
       if (!window.THREE) {
         const threeScript = document.createElement('script');
@@ -33,7 +35,7 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
           threeScript.onload = resolve;
         });
       }
-  
+
       // Ensure VANTA is loaded
       if (!window.VANTA) {
         const vantaScript = document.createElement('script');
@@ -44,7 +46,7 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
           vantaScript.onload = resolve;
         });
       }
-  
+
       // Reinitialize VANTA effect
       if (vantaRef.current && !vantaEffectRef.current) {
         vantaEffectRef.current = window.VANTA.NET({
@@ -64,9 +66,9 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
         });
       }
     };
-  
+
     loadScripts();
-  
+
     // Cleanup VANTA effect when component unmounts
     return () => {
       if (vantaEffectRef.current) {
@@ -75,7 +77,7 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
       }
     };
   }, [vantaRef]);
-  
+
 
   return (
     <div ref={vantaRef} className="relative flex-1">
