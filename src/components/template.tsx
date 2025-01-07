@@ -1,8 +1,9 @@
 
 import { Card, CardContent } from "./card"
 import { Button } from "../components/ui/button"
+import "../components/ui/get-started-btn.css";
 
-export function Templates() {
+export function Templates(){
   const templates = [
     { title: "Add automated ClickUp tasks to Airtable" },
     { title: "Create an Azure task from a new Provider" },
@@ -18,7 +19,7 @@ export function Templates() {
         <p className="text-gray-400 mb-8 max-w-2xl">
           Get inspired by thousands of free workflow automation templates. Customize them to match your ideal workflows.
         </p>
-        <Button className="mb-12 bg-purple-600 hover:bg-purple-700 text-white">
+        <Button className="sup">
           Get Started Free →
         </Button>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

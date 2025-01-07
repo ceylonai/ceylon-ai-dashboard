@@ -5,7 +5,7 @@ import "../components/ui/get-started-btn.css" ;
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-sm border-b border-gray-800">
+    <nav className="fixed top-0 w-full z-50 bg-gray-950/90 backdrop-blur-sm border-b border-gray-800">
       <div className="container mx-auto px-12 h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
