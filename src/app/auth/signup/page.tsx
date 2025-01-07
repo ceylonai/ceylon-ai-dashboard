@@ -76,7 +76,7 @@ export default function SignUp() {
             </div>
             <div className="hidden lg:block relative">
                 <Image
-                    src="/ceylon-ai-background.jpg"
+                    src="/ceylon-ai-background.png"
                     alt="Ceylon AI Background"
                     layout="fill"
                     objectFit="cover"
@@ -85,7 +85,7 @@ export default function SignUp() {
                 <div className="absolute inset-0 bg-black bg-opacity-50" />
                 <div className="absolute top-6 right-6 z-10">
                     <Image
-                        src="/ceylonAilogo.png"
+                        src="/logoAi.png"
                         alt="Ceylon AI Logo"
                         width={60}
                         height={60}
