@@ -76,4 +76,10 @@ export default function VantaBackground({ children }: VantaBackgroundProps) {
     };
   }, [vantaRef]);
   
+
+  return (
+    <div ref={vantaRef} className="relative flex-1">
+      {children}
+    </div>
+  )
 }
