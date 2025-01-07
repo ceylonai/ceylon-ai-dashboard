@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import "../components/ui/get-started-btn.css" ;
+import "../components/ui/get-started-btn.css";
+import Image from "next/image";
 
 
 export function Navbar() {
@@ -9,9 +10,15 @@ export function Navbar() {
       <div className="container mx-auto px-12 h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <img className="w-8 h-8 rounded-full mr-2" src="/logoAi.png" alt="" />
-            <span className="text-white font-semibold">Ceylon AI</span>
-          </Link>
+              <Image
+                  className="rounded-full mr-2"
+                  src="/logoAi.png"
+                  alt="Logo"
+                  width={42} 
+                  height={42}
+              />
+              <span className="text-white font-semibold">Ceylon AI</span>
+            </Link>
           <div className="hidden md:flex items-center gap-6 ml-12">
             <Link href="#" className="text-gray-300 hover:text-white">
               Home
@@ -25,20 +32,20 @@ export function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="nlg">
-            <Link href="/auth/signin">
-            Login
-            </Link>
-          </Button>
-          <Button className="nsup">
+          <Link href="/auth/signin">
+            <Button variant="ghost" className="nlg">
+              Login
+            </Button>
+          </Link>
           <Link href="/auth/signup">
-             <span></span>
+            <Button className="nsup">
               <span></span>
               <span></span>
               <span></span>
-            Get Started Free
-            </Link>
-          </Button>
+              <span></span>
+              Get Started Free
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
