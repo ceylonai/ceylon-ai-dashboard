@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -33,11 +33,11 @@ export default function ResetPassword() {
 
     return (
         <div className="grid min-h-screen lg:grid-cols-2">
-            <div className="flex items-center justify-center px-8 py-12 md:px-12">
+            <div className="flex items-center justify-center px-8 py-12 md:px-12 bg-white dark:bg-gray-900">
                 <div className="w-full max-w-sm space-y-8">
                     <div className="space-y-2 text-center">
-                        <h1 className="text-3xl font-bold">Reset Password</h1>
-                        <p className="text-gray-500">
+                        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Reset Password</h1>
+                        <p className="text-gray-500 dark:text-gray-400">
                             Enter your new password below.
                         </p>
                     </div>
@@ -64,22 +64,22 @@ export default function ResetPassword() {
                                     <AlertDescription>{error}</AlertDescription>
                                 </Alert>
                             )}
-                            <Button type="submit" className="w-full bg-black text-white hover:bg-black/90">
+                            <Button type="submit" className="w-full bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90">
                                 Reset Password
                             </Button>
                         </form>
                     ) : (
-                        <Alert variant="default">
-                            <CheckCircle2 className="h-4 w-4" />
-                            <AlertTitle>Success</AlertTitle>
-                            <AlertDescription>
+                        <Alert variant="default" className="bg-green-100 dark:bg-green-900">
+                            <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
+                            <AlertTitle className="text-green-800 dark:text-green-200">Success</AlertTitle>
+                            <AlertDescription className="text-green-700 dark:text-green-300">
                                 Your password has been successfully reset. You can now sign in with your new password.
                             </AlertDescription>
                         </Alert>
                     )}
-                    <div className="text-center text-sm">
+                    <div className="text-center text-sm text-gray-500 dark:text-gray-400">
                         Remember your password?{" "}
-                        <Link href="/auth/signin" className="text-purple-600 hover:underline">
+                        <Link href="/auth/signin" className="text-purple-600 hover:underline dark:text-purple-400">
                             Sign in
                         </Link>
                     </div>
@@ -87,7 +87,7 @@ export default function ResetPassword() {
             </div>
             <div className="hidden lg:block relative">
                 <Image
-                    src="/ceylon-ai-background.jpg"
+                    src="/ceylon-ai-background.png"
                     alt="Ceylon AI Background"
                     layout="fill"
                     objectFit="cover"
@@ -96,7 +96,7 @@ export default function ResetPassword() {
                 <div className="absolute inset-0 bg-black bg-opacity-50" />
                 <div className="absolute top-6 right-6 z-10">
                     <Image
-                        src="/ceylonAilogo.png"
+                        src="/logoAi.png"
                         alt="Ceylon AI Logo"
                         width={60}
                         height={60}
@@ -118,4 +118,3 @@ export default function ResetPassword() {
         </div>
     )
 }
-
