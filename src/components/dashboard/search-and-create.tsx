@@ -1,7 +1,11 @@
+"use client"
+import { useState } from "react"
+import { CreateAppDialog } from "@/components/workspace/create-app-form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 export function SearchAndCreate() {
+    const [open, setOpen] = useState(false)
     return (
         <div className="flex justify-between items-center mb-6">
         <Input
@@ -9,7 +13,9 @@ export function SearchAndCreate() {
     type="text"
     placeholder="Value"
     />
-    <Button className="bg-purple-600 hover:bg-purple-700 text-white">Create Project</Button>
+    <Button className="bg-purple-600 hover:bg-purple-700 text-white"
+     onClick={() => setOpen(true)}>Create Project</Button>
+      <CreateAppDialog open={open} onOpenChange={setOpen} />
     </div>
 )
 }
