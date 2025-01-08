@@ -12,6 +12,6 @@ export default function AddNode({ data }: AddNodeProps) {
       <Plus className="h-8 w-8 text-white" />
       <Handle type="target" position={Position.Left} className="!bg-transparent" />
       <Handle type="source" position={Position.Right} className="!bg-transparent" />
-    </div>
-  )
+</div>
+)
 }
