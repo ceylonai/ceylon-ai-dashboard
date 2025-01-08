@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Home, BarChart2, Bell, PieChart, Briefcase, LogOut, Sun } from 'lucide-react'
+import { Home, BarChart2, Bell, PieChart, Briefcase, LogOut } from 'lucide-react'
 import { cn } from "@/lib/utils"
 
 const sidebarItems = [
@@ -9,9 +9,8 @@ const sidebarItems = [
     { icon: BarChart2, label: "Analytics" },
     { icon: Bell, label: "Notifications" },
     { icon: PieChart, label: "Statistics" },
-    { icon: Briefcase, label: "Projects" },
+    { icon: Briefcase, label: "Agents" },
     { icon: LogOut, label: "Logout" },
-    { icon: Sun, label: "Theme" },
 ]
 
 export function LeftSidebar() {
