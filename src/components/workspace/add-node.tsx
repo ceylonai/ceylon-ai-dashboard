@@ -4,7 +4,7 @@ import { Handle, Position } from 'reactflow'
 import { Plus } from 'lucide-react'
 
 interface AddNodeProps {
-  data: never;
+  data: any;
 }
 export default function AddNode({ data }: AddNodeProps) {
     return (
