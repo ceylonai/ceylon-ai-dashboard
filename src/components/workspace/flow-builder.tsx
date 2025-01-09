@@ -1,6 +1,7 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
+import AgentNode from "@/components/workspace/agent-node";
 import ReactFlow, {
     MiniMap,
     Controls,
@@ -18,12 +19,13 @@ import { Button } from '@/components/ui/button'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import AddNode from './add-node'
 import { AgentSelectorDialog } from './agent-selector-dialog'
-import { AIAgent, CustomNode } from '../../type/flow'
+import { AIAgent, CustomNode } from '@/type/flow'
 import 'reactflow/dist/style.css'
 
 const nodeTypes: NodeTypes = {
     addNode: AddNode,
-}
+    agentNode: AgentNode, // Register the agentNode here
+};
 
 const initialNodes: CustomNode[] = [
     {
@@ -32,26 +34,26 @@ const initialNodes: CustomNode[] = [
         position: { x: 400, y: 300 },
         data: { label: 'Add Agent' },
     },
-]
+];
 
 export default function FlowBuilder() {
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
-    const [edges, setEdges, onEdgesChange] = useEdgesState([])
-    const [dialogOpen, setDialogOpen] = useState(false)
-    const [selectedNode, setSelectedNode] = useState<string | null>(null)
+    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+    const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [selectedNode, setSelectedNode] = useState<string | null>(null);
 
     const onConnect = useCallback(
         (params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)),
         [setEdges]
-    )
+    );
 
-    const onNodeClick = useCallback((event: React.MouseEvent, node: any) => {
-        const customNode = node as CustomNode
+    const onNodeClick = useCallback((event: React.MouseEvent, node: never) => {
+        const customNode = node as CustomNode;
         if (customNode.type === 'addNode') {
-            setSelectedNode(customNode.id)
-            setDialogOpen(true)
+            setSelectedNode(customNode.id);
+            setDialogOpen(true);
         }
-    }, [])
+    }, []);
 
     const handleSelectAgent = useCallback(
         (agent: AIAgent) => {
@@ -72,6 +74,7 @@ export default function FlowBuilder() {
                             icon: agent.icon,
                         },
                     };
+
                     const newAddNode: CustomNode = {
                         id: `add-${nodes.length + 2}`,
                         type: "addNode",
@@ -81,29 +84,50 @@ export default function FlowBuilder() {
                         },
                         data: { label: "Add Agent" },
                     };
-                    setNodes((nds) => [...nds, newAgentNode, newAddNode]);
+
+                    // Remove the first "plus" button node and add the new nodes
+                    setNodes((nds) => [
+                        ...nds.filter((n) => n.id !== "1"), // Exclude the initial node
+                        newAgentNode,
+                        newAddNode,
+                    ]);
 
                     const newEdges: Edge[] = [
                         {
                             id: `edge-${selectedNode}-${newNodeId}`,
                             source: selectedNode,
+                            sourceHandle: "add-source", // Reference specific handle
                             target: newNodeId,
+                            targetHandle: "agent-target", // Reference specific handle
+                            style: { stroke: "#007bff", strokeWidth: 2 },
                         },
                         {
                             id: `edge-${newNodeId}-${newAddNode.id}`,
                             source: newNodeId,
+                            sourceHandle: "agent-source", // Reference specific handle
                             target: newAddNode.id,
+                            targetHandle: "add-target", // Reference specific handle
+                            style: { stroke: "#007bff", strokeWidth: 2 },
                         },
                     ];
+
                     setEdges((eds) => [...eds, ...newEdges]);
                 }
             }
+
             setDialogOpen(false);
             setSelectedNode(null);
         },
         [nodes, selectedNode, setNodes, setEdges]
     );
 
+
+
+    // Debugging: Test hardcoded nodes and edges
+    useEffect(() => {
+        console.log("Initial Nodes:", nodes);
+        console.log("Initial Edges:", edges);
+    }, [nodes, edges]);
 
     return (
         <SidebarProvider>
@@ -139,5 +163,5 @@ export default function FlowBuilder() {
                 </div>
             </div>
         </SidebarProvider>
-    )
+    );
 }
