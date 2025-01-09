@@ -17,6 +17,7 @@ import ReactFlow, {
 import { LeftSidebar } from "@/components/workspace/left-sidebar";
 import { RightSidebar } from "@/components/workspace/right-sidebar";
 import "reactflow/dist/style.css";
+import TabNavigation from "@/components/workspace/tab-bar";
 
 const FlowBuilder = dynamic(() => import("@/components/workspace/flow-builder"), {
     ssr: false,
@@ -85,6 +86,7 @@ function Flow() {
                         <Controls />
                     </ReactFlow>
                 </div>
+                <TabNavigation />
                 <FlowBuilder />
             </div>
             <RightSidebar />
