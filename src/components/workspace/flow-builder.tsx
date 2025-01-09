@@ -24,7 +24,7 @@ import 'reactflow/dist/style.css'
 
 const nodeTypes: NodeTypes = {
     addNode: AddNode,
-    agentNode: AgentNode, // Register the agentNode here
+    agentNode: AgentNode,
 };
 
 const initialNodes: CustomNode[] = [
@@ -47,7 +47,7 @@ export default function FlowBuilder() {
         [setEdges]
     );
 
-    const onNodeClick = useCallback((event: React.MouseEvent, node: never) => {
+    const onNodeClick = useCallback((event: React.MouseEvent, node: any) => {
         const customNode = node as CustomNode;
         if (customNode.type === 'addNode') {
             setSelectedNode(customNode.id);
@@ -84,29 +84,26 @@ export default function FlowBuilder() {
                         },
                         data: { label: "Add Agent" },
                     };
-
-                    // Remove the first "plus" button node and add the new nodes
                     setNodes((nds) => [
-                        ...nds.filter((n) => n.id !== "1"), // Exclude the initial node
+                        ...nds.filter((n) => n.id !== "1"),
                         newAgentNode,
                         newAddNode,
                     ]);
-
                     const newEdges: Edge[] = [
                         {
                             id: `edge-${selectedNode}-${newNodeId}`,
                             source: selectedNode,
-                            sourceHandle: "add-source", // Reference specific handle
+                            sourceHandle: "add-source",
                             target: newNodeId,
-                            targetHandle: "agent-target", // Reference specific handle
+                            targetHandle: "agent-target",
                             style: { stroke: "#007bff", strokeWidth: 2 },
                         },
                         {
                             id: `edge-${newNodeId}-${newAddNode.id}`,
                             source: newNodeId,
-                            sourceHandle: "agent-source", // Reference specific handle
+                            sourceHandle: "agent-source",
                             target: newAddNode.id,
-                            targetHandle: "add-target", // Reference specific handle
+                            targetHandle: "add-target",
                             style: { stroke: "#007bff", strokeWidth: 2 },
                         },
                     ];
@@ -120,10 +117,6 @@ export default function FlowBuilder() {
         },
         [nodes, selectedNode, setNodes, setEdges]
     );
-
-
-
-    // Debugging: Test hardcoded nodes and edges
     useEffect(() => {
         console.log("Initial Nodes:", nodes);
         console.log("Initial Edges:", edges);
