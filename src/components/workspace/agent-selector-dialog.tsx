@@ -23,25 +23,29 @@ const availableAgents: AIAgent[] = [
     id: "assistant",
     name: "AI Assistant",
     icon: "bot",
-    description: "General purpose AI assistant"
+    description: "General purpose AI assistant",
+    src: "/public/ai.png"
   },
   {
     id: "researcher",
     name: "AI Researcher",
     icon: "search",
-    description: "Research and analysis focused AI"
+    description: "Research and analysis focused AI",
+    src: "/public/ai.png"
   },
   {
     id: "writer",
     name: "AI Writer",
     icon: "pen",
-    description: "Content generation and writing"
+    description: "Content generation and writing",
+    src: "/public/ai.png"
   },
   {
     id: "analyst",
     name: "AI Analyst",
     icon: "brain",
-    description: "Data analysis and insights"
+    description: "Data analysis and insights",
+    src: "/public/ai.png"
   }
 ]
 
