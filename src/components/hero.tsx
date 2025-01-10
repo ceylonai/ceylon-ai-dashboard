@@ -1,9 +1,8 @@
 'use client'
-import router from "next/router";
-import { Button } from "../components/ui/button"
+import { Button } from "@/components/ui/button";
 import "../components/ui/get-started-btn.css";
-import { useRouter } from 'next/navigation'
-import Link from "next/link"
+import { useRouter } from 'next/navigation';
+
 
 <link
 href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
