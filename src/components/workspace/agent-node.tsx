@@ -1,7 +1,6 @@
 import React from 'react';
 import { Handle, Position } from 'reactflow';
-import Image from 'next/image';
-import { Bot, Brain, Search, MessageSquare, Plus } from 'lucide-react'
+import { Bot, Brain, Search, MessageSquare, Plus } from 'lucide-react';
 
 interface AgentNodeProps {
     data: {
@@ -25,6 +24,7 @@ const AgentNode: React.FC<AgentNodeProps> = ({ data }) => {
                 width: '80px',
                 height: '80px',
                 textAlign: 'center',
+                position: 'relative', // Set position to relative to allow positioning of the button
             }}
         >
             {data.icon && (
@@ -43,6 +43,31 @@ const AgentNode: React.FC<AgentNodeProps> = ({ data }) => {
                     {data.icon === 'pen' && <MessageSquare className="h-5 w-5" />}
                 </div>
             )}
+
+            {/* Badge Styled as a Button */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '5px', // Position the badge at the top-right of the node
+                    right: '0px',  // Adjust for the right side
+                    padding: '4px',
+                    borderRadius: '50%', // Make it rounded like a badge
+                    backgroundColor: '#007bff',
+                    color: '#fff',
+                    fontSize: '10px',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                }}
+                onClick={() => alert('Badge Clicked')}
+            >
+                <Plus className="h-4 w-4" />
+            </div>
+
+            {/* Handles for connections */}
             <Handle
                 type="target"
                 id="agent-target" // Unique handle ID for incoming connections
