@@ -1,6 +1,4 @@
-'use client'
-
-import { useCallback, useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from "react";
 import AgentNode from "@/components/workspace/agent-node";
 import ReactFlow, {
     MiniMap,
@@ -13,14 +11,14 @@ import ReactFlow, {
     Edge,
     NodeTypes,
     BackgroundVariant,
-} from 'reactflow'
-import { ChevronLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { SidebarProvider } from '@/components/ui/sidebar'
-import AddNode from './add-node'
-import { AgentSelectorDialog } from './agent-selector-dialog'
-import { AIAgent, CustomNode } from '@/type/flow'
-import 'reactflow/dist/style.css'
+} from "reactflow";
+import { ChevronLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AddNode from "./add-node";
+import { AgentSelectorDialog } from "./agent-selector-dialog";
+import { AIAgent, CustomNode } from "@/type/flow";
+import "reactflow/dist/style.css";
 
 const nodeTypes: NodeTypes = {
     addNode: AddNode,
@@ -29,10 +27,10 @@ const nodeTypes: NodeTypes = {
 
 const initialNodes: CustomNode[] = [
     {
-        id: '1',
-        type: 'addNode',
+        id: "1",
+        type: "addNode",
         position: { x: 400, y: 300 },
-        data: { label: 'Add Agent' },
+        data: { label: "Add Agent" },
     },
 ];
 
@@ -49,7 +47,7 @@ export default function FlowBuilder() {
 
     const onNodeClick = useCallback((event: React.MouseEvent, node: any) => {
         const customNode = node as CustomNode;
-        if (customNode.type === 'addNode') {
+        if (customNode.type === "addNode") {
             setSelectedNode(customNode.id);
             setDialogOpen(true);
         }
@@ -117,6 +115,7 @@ export default function FlowBuilder() {
         },
         [nodes, selectedNode, setNodes, setEdges]
     );
+
     useEffect(() => {
         console.log("Initial Nodes:", nodes);
         console.log("Initial Edges:", edges);
@@ -150,8 +149,8 @@ export default function FlowBuilder() {
                     </ReactFlow>
                     <AgentSelectorDialog
                         open={dialogOpen}
-                        onClose={() => setDialogOpen(false)}
-                        onSelectAgent={handleSelectAgent}
+                        onCloseAction={() => setDialogOpen(false)} // Updated to match prop name
+                        onSelectAgentAction={handleSelectAgent} // Updated to match prop name
                     />
                 </div>
             </div>
