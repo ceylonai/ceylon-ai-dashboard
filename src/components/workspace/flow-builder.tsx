@@ -2,6 +2,7 @@
 
 import { useCallback, useState, useEffect } from 'react'
 import AgentNode from "@/components/workspace/agent-node";
+import AddNode from '@/components/workspace/add-node'
 import ReactFlow, {
     MiniMap,
     Controls,
@@ -12,21 +13,71 @@ import ReactFlow, {
     Connection,
     Edge,
     NodeTypes,
+    EdgeTypes,
     BackgroundVariant,
 } from 'reactflow'
 import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SidebarProvider } from '@/components/ui/sidebar'
-import AddNode from './add-node'
 import { AgentSelectorDialog } from './agent-selector-dialog'
 import { AIAgent, CustomNode } from '@/type/flow'
 import 'reactflow/dist/style.css'
+
+
+const BubbleEdge = ({ id, sourceX, sourceY, targetX, targetY, style }: any) => {
+    const distance = Math.sqrt(Math.pow(targetX - sourceX, 2) + Math.pow(targetY - sourceY, 2)); 
+    const numBubbles = Math.max(6, Math.floor(distance / 10)); 
+    const gap = 2;
+
+    const midX = (sourceX + targetX) / 2;
+    const midY = (sourceY + targetY) / 2;
+    const path = `
+        M ${sourceX} ${sourceY}
+        Q ${midX} ${sourceY} ${midX} ${midY}
+        Q ${midX} ${targetY} ${targetX} ${targetY}
+    `;
+
+    const generateBubbles = () => {
+        const bubbles = [];
+        for (let i = 0; i < numBubbles; i++) {
+            const t = i / (numBubbles - 1);
+            const distanceFromCenter = Math.abs(2 * t - 1);
+            const radius = 4 + (6 * distanceFromCenter); 
+
+            const x = sourceX + (targetX - sourceX) * t;
+            const y = sourceY + (targetY - sourceY) * t;
+
+            
+            const gradientRatio = t; 
+            const color = `rgb(${Math.round(255 * (1 - gradientRatio))}, 0, ${Math.round(255 * gradientRatio)})`;
+
+            bubbles.push(<circle key={i} cx={x} cy={y} r={radius} fill={color} />);
+        }
+        return bubbles;
+    };
+
+    return (
+        <>
+            <g>
+                {generateBubbles()}
+            </g>
+        </>
+    );
+};
+
+
+
 
 const nodeTypes: NodeTypes = {
     addNode: AddNode,
     agentNode: AgentNode,
 };
 
+const edgeTypes: EdgeTypes = {
+    bubbleEdge: BubbleEdge,
+};
+
+// Initial nodes
 const initialNodes: CustomNode[] = [
     {
         id: '1',
@@ -43,7 +94,7 @@ export default function FlowBuilder() {
     const [selectedNode, setSelectedNode] = useState<string | null>(null);
 
     const onConnect = useCallback(
-        (params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)),
+        (params: Edge | Connection) => setEdges((eds) => addEdge({ ...params, type: 'bubbleEdge' }, eds)),
         [setEdges]
     );
 
@@ -84,11 +135,13 @@ export default function FlowBuilder() {
                         },
                         data: { label: "Add Agent" },
                     };
+
                     setNodes((nds) => [
                         ...nds.filter((n) => n.id !== "1"),
                         newAgentNode,
                         newAddNode,
                     ]);
+
                     const newEdges: Edge[] = [
                         {
                             id: `edge-${selectedNode}-${newNodeId}`,
@@ -96,7 +149,7 @@ export default function FlowBuilder() {
                             sourceHandle: "add-source",
                             target: newNodeId,
                             targetHandle: "agent-target",
-                            style: { stroke: "#007bff", strokeWidth: 2 },
+                            type: "bubbleEdge",
                         },
                         {
                             id: `edge-${newNodeId}-${newAddNode.id}`,
@@ -104,7 +157,7 @@ export default function FlowBuilder() {
                             sourceHandle: "agent-source",
                             target: newAddNode.id,
                             targetHandle: "add-target",
-                            style: { stroke: "#007bff", strokeWidth: 2 },
+                            type: "bubbleEdge",
                         },
                     ];
 
@@ -117,6 +170,7 @@ export default function FlowBuilder() {
         },
         [nodes, selectedNode, setNodes, setEdges]
     );
+
     useEffect(() => {
         console.log("Initial Nodes:", nodes);
         console.log("Initial Edges:", edges);
@@ -140,6 +194,7 @@ export default function FlowBuilder() {
                         onConnect={onConnect}
                         onNodeClick={onNodeClick}
                         nodeTypes={nodeTypes}
+                        edgeTypes={edgeTypes}
                         snapToGrid
                         fitView
                         className="bg-background"
