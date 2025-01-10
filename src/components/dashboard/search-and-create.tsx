@@ -26,7 +26,7 @@ export function SearchAndCreate() {
             </Button>
 
             {/* Dialog Component */}
-            <CreateAppDialog open={open} onOpenChange={setOpen} />
+            <CreateAppDialog open={open} onOpenChangeAction={setOpen} />
         </div>
     );
 }
