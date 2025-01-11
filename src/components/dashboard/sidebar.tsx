@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { LayoutDashboard, LineChart, Bell, BarChart3, Package, LogOut } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from "next/link";
+import React from "react";
 
 export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
     return (
