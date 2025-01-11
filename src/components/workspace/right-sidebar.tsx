@@ -1,3 +1,4 @@
+'use client';
 import { Play, RotateCcw, RefreshCw, FileBox, Settings, MoreHorizontal } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
