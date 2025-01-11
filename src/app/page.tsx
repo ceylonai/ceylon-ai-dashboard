@@ -1,4 +1,5 @@
-import {Button} from "../components/ui/button" ;
+'use client';
+
 import LandingPage from "./pages/landing-page/landing-page";
 
 export default function Home() {
