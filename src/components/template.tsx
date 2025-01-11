@@ -1,4 +1,4 @@
-
+'use client';
 import { Card, CardContent } from "./card"
 import { Button } from "../components/ui/button"
 import "../components/ui/get-started-btn.css";
