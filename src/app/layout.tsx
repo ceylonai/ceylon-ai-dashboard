@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import "./globals.css"
 import { Providers } from './providers'
 import { ThemeSwitcher } from '@/components/ui/theme-switcher'
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] })
 
