@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { Handle, Position } from 'reactflow';
 import { Bot, Brain, Search, MessageSquare, Plus } from 'lucide-react';

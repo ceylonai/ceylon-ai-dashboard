@@ -1,3 +1,4 @@
+'use client';
 import { useCallback, useState, useEffect } from "react";
 import AgentNode from "@/components/workspace/agent-node";
 import ReactFlow, {
