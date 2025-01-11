@@ -150,8 +150,8 @@ export default function FlowBuilder() {
                     </ReactFlow>
                     <AgentSelectorDialog
                         open={dialogOpen}
-                        onCloseAction={() => setDialogOpen(false)} // Updated to match prop name
-                        onSelectAgentAction={handleSelectAgent} // Updated to match prop name
+                        onCloseAction={() => setDialogOpen(false)}
+                        onSelectAgentAction={handleSelectAgent}
                     />
                 </div>
             </div>

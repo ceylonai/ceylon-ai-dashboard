@@ -33,12 +33,12 @@ const formSchema = z.object({
 
 interface CreateAppDialogProps {
     open: boolean;
-    onOpenChangeAction: (open: boolean) => void; // Renamed to conform to naming convention
+    onOpenChangeAction: (open: boolean) => void;
 }
 
 export function CreateAppDialog({
                                     open,
-                                    onOpenChangeAction, // Updated usage
+                                    onOpenChangeAction,
                                 }: CreateAppDialogProps) {
     const router = useRouter();
 
