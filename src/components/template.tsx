@@ -3,7 +3,7 @@ import { Card, CardContent } from "./card"
 import { Button } from "../components/ui/button"
 import "../components/ui/get-started-btn.css";
 
-export function Templates() {
+export function Templates(){
   const templates = [
     { title: "Add automated ClickUp tasks to Airtable" },
     { title: "Create an Azure task from a new Provider" },

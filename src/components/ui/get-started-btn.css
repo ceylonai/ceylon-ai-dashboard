@@ -152,7 +152,7 @@
     animation: glowing 20s linear infinite;
     opacity: 0; 
     transition: opacity 0.3s ease-in-out;
-    border-radius: 8px;
+    border-radius: 14px;
 }
 
 .nsup:hover::before {
